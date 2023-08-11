@@ -1,31 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "bootstrap/dist/css/bootstrap.min.css"
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Navbar = () => {
+const CustomNavbar = () => {
   return (
-    <nav className="navbar navbar-expand-md justify-content-space-between bg-dark navbar-dark">
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <Link  className="nav-link active" to="/">Home</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/admin" className="nav-link ">Admin</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/books" className="nav-link">Books</Link>
-        </li>
-        <li>
-          <Link className='nav-item btn btn-primary' to='/login'>Login</Link>
-        </li>
-        <li>
-          <Link className='nav-item btn btn-primary' to='/signup'>Signup</Link>
-        </li>
-      </ul>
-      
-      
-    </nav>
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand as={Link} to="/">PRAGATI</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/" className="nav-link active">Home</Nav.Link>
+            <Nav.Link as={Link} to="/admin" className="nav-link">Admin</Nav.Link>
+            <Nav.Link as={Link} to="/books" className="nav-link">Books</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Nav className="nav navbar-nav navbar-right">
+            <Nav.Link as={Link} to="/signup" className="nav-link btn btn-primary">
+              <span className="glyphicon glyphicon-user"></span> Sign Up
+            </Nav.Link>
+            <Nav.Link as={Link} to="/login" className="nav-link btn btn-primary">
+              <span className="glyphicon glyphicon-log-in"></span> Login
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default CustomNavbar;

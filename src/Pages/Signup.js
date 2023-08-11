@@ -14,7 +14,7 @@ const SignIn = () => {
       <div className="row justify-content-center">
         <div className="col-md-6 mt-5">
           <div className="card">
-            <div className="card-header">
+            <div className="card-header bg-primary text-white">
               <h3 className="text-center">Sign In</h3>
             </div>
             <div className="card-body">
