@@ -19,10 +19,12 @@ function Admin() {
             author: event.target.author.value,
             genre: event.target.genre.value,
             publicationDate: event.target.publicationDate.value,
+            imageLink: event.target.imageLink.value, // Add this line
         };
         setAddedBooks([...addedBooks, newBook]);
         event.target.reset();
     };
+
 
     const handleSearch = () => {
         if (option === "delete" || option === "update") {
@@ -51,14 +53,16 @@ function Admin() {
 
     return (
         <div className="container mt-5">
-            <h1 className="mb-4">Add, Delete, or Update Book</h1>
+            <h1 className="mb-4  display-4 fw-bold text-primary">
+                Add, Delete, or Update Book
+            </h1>
             <div className="row">
-                <div className="col-md-4">
-                    <div className="card">
+                <div className="col-md-4 ">
+                    <div className="card position-fixed ">
                         <div className="card-header">Options</div>
                         <div className="card-body text-center">
                             <div className="btn-group text-center" role="group" aria-label="Options">
-                            <button
+                                <button
                                     className={`btn ${option === "add" ? "btn-success" : "btn-danger"}`}
                                     onClick={() => handleOptionChange("add")}
                                 >
@@ -78,12 +82,12 @@ function Admin() {
                                 </button>
                             </div>
                             <div className="mt-3">
-                            <img
-                                src="https://images.pexels.com/photos/1261180/pexels-photo-1261180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="Book Options"
-                                className="img-fluid mt-3"
-                                style={{ width: "100%", height: "80vh" }}
-                            />
+                                <img
+                                    src="https://images.pexels.com/photos/1261180/pexels-photo-1261180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                    alt="Book Options"
+                                    className="img-fluid mt-3"
+                                    style={{ width: "100%", height: "50vh" }}
+                                />
                             </div>
                         </div>
                     </div>
@@ -101,34 +105,41 @@ function Admin() {
                                 <div>
                                     <h2>Add Book</h2>
                                     <form onSubmit={handleAddBook}>
-                            <div className="mb-3">
-                                    <label htmlFor="title" className="form-label">
-                                        Title
-                                    </label>
-                                    <input type="text" className="form-control" id="title" required />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="author" className="form-label">
-                                        Author
-                                    </label>
-                                    <input type="text" className="form-control" id="author" required />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="genre" className="form-label">
-                                        Genre
-                                    </label>
-                                    <input type="text" className="form-control" id="genre" required />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="publicationDate" className="form-label">
-                                        Publication Date
-                                    </label>
-                                    <input type="text" className="form-control" id="publicationDate" required />
-                                </div>
-                                <button type="submit" className="btn btn-primary">
-                                    Add Book
-                                </button>
-                            </form>
+                                        <div className="mb-3">
+                                            <div className="mb-3">
+                                                <label htmlFor="imageLink" className="form-label">
+                                                    Image Link
+                                                </label>
+                                                <input type="text" className="form-control" id="imageLink" required />
+                                            </div>
+
+                                            <label htmlFor="title" className="form-label">
+                                                Title
+                                            </label>
+                                            <input type="text" className="form-control" id="title" required />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="author" className="form-label">
+                                                Author
+                                            </label>
+                                            <input type="text" className="form-control" id="author" required />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="genre" className="form-label">
+                                                Genre
+                                            </label>
+                                            <input type="text" className="form-control" id="genre" required />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="publicationDate" className="form-label">
+                                                Publication Date
+                                            </label>
+                                            <input type="text" className="form-control" id="publicationDate" required />
+                                        </div>
+                                        <button type="submit" className="btn btn-primary">
+                                            Add Book
+                                        </button>
+                                    </form>
                                 </div>
                             )}
                             {option === "delete" && (
@@ -145,16 +156,16 @@ function Admin() {
                                         Search
                                     </button>
                                     <ul>
-                                    {foundBooks.map((book, index) => (
-                                    <li key={index}>
-                                        <strong>Title:</strong> {book.title}, <strong>Author:</strong> {book.author},{" "}
-                                        <strong>Genre:</strong> {book.genre}, <strong>Publication Date:</strong>{" "}
-                                        {book.publicationDate}{" "}
-                                        <button className="btn btn-danger btn-sm ml-2" onClick={() => handleDeleteBook(book)}>
-                                            Delete
-                                        </button>
-                                    </li>
-                                ))}
+                                        {foundBooks.map((book, index) => (
+                                            <li key={index}>
+                                                <strong>Title:</strong> {book.title}, <strong>Author:</strong> {book.author},{" "}
+                                                <strong>Genre:</strong> {book.genre}, <strong>Publication Date:</strong>{" "}
+                                                {book.publicationDate}{" "}
+                                                <button className="btn btn-danger btn-sm ml-2" onClick={() => handleDeleteBook(book)}>
+                                                    Delete
+                                                </button>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                             )}
@@ -172,64 +183,79 @@ function Admin() {
                                         Search
                                     </button>
                                     <ul>
-                                    {foundBooks.map((book, index) => (
-                            <li key={index}>
-                                <strong>Title:</strong> {book.title}, <strong>Author:</strong> {book.author},{" "}
-                                <strong>Genre:</strong> {book.genre}, <strong>Publication Date:</strong>{" "}
-                                {book.publicationDate}{" "}
-                                <div className="mb-3">
-                                    <label htmlFor={`update-title-${index}`} className="form-label">
-                                        New Title
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id={`update-title-${index}`}
-                                        placeholder="New Title"
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor={`update-author-${index}`} className="form-label">
-                                        New Author
-                                    </label>
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id={`update-author-${index}`}
-                                        placeholder="New Author"
-                                    />
-                                </div>
-                                <button
-                                    className="btn btn-success btn-sm"
-                                    onClick={() =>
-                                        handleUpdateBook(
-                                            index,
-                                            document.getElementById(`update-title-${index}`).value,
-                                            document.getElementById(`update-author-${index}`).value
-                                        )
-                                    }
-                                >
-                                    Update
-                                </button>
-                            </li>
-                        ))}
+                                        {foundBooks.map((book, index) => (
+                                            <li key={index}>
+                                                <strong>Title:</strong> {book.title}, <strong>Author:</strong> {book.author},{" "}
+                                                <strong>Genre:</strong> {book.genre}, <strong>Publication Date:</strong>{" "}
+                                                {book.publicationDate}{" "}
+                                                <div className="mb-3">
+                                                    <label htmlFor={`update-title-${index}`} className="form-label">
+                                                        New Title
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        id={`update-title-${index}`}
+                                                        placeholder="New Title"
+                                                    />
+                                                </div>
+                                                <div className="mb-3">
+                                                    <label htmlFor={`update-author-${index}`} className="form-label">
+                                                        New Author
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        className="form-control"
+                                                        id={`update-author-${index}`}
+                                                        placeholder="New Author"
+                                                    />
+                                                </div>
+                                                <button
+                                                    className="btn btn-success btn-sm"
+                                                    onClick={() =>
+                                                        handleUpdateBook(
+                                                            index,
+                                                            document.getElementById(`update-title-${index}`).value,
+                                                            document.getElementById(`update-author-${index}`).value
+                                                        )
+                                                    }
+                                                >
+                                                    Update
+                                                </button>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                             )}
                         </div>
                     </div>
-                    <div className="card-body">
-                        <h2>Added Books</h2>
-                        <ul>
-                            {addedBooks.map((book, index) => (
-                                <li key={index}>
-                                    <strong>Title:</strong> {book.title}, <strong>Author:</strong> {book.author},{" "}
-                                    <strong>Genre:</strong> {book.genre}, <strong>Publication Date:</strong>{" "}
-                                    {book.publicationDate}
-                                </li>
-                            ))}
-                        </ul>
+                    <div className="card mt-4">
+                        <div className="card-body">
+                            <h2>Added Books</h2>
+                            <div className="row">
+                                {addedBooks.map((book, index) => (
+                                    <div key={index} className="col-md-6 mb-4">
+                                        <div className="card">
+                                            <img src={book.imageLink} alt={`Cover of ${book.title}`} className="card-img-top" />
+                                            <div className="card-body">
+                                                <h5 className="card-title">{book.title}</h5>
+                                                <p className="card-text">
+                                                    <strong>Author:</strong> {book.author}
+                                                </p>
+                                                <p className="card-text">
+                                                    <strong>Genre:</strong> {book.genre}
+                                                </p>
+                                                <p className="card-text">
+                                                    <strong>Publication Date:</strong> {book.publicationDate}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
