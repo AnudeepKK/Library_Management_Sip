@@ -14,6 +14,7 @@ const CustomNavbar = () => {
             <Nav.Link as={Link} to="/" className="nav-link active">Home</Nav.Link>
             <Nav.Link as={Link} to="/admin" className="nav-link">Admin</Nav.Link>
             <Nav.Link as={Link} to="/books" className="nav-link">Books</Nav.Link>
+            <Nav.Link as={Link} to="/about" className="nav-link">About</Nav.Link>
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
