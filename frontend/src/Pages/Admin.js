@@ -59,7 +59,7 @@ function Admin() {
                 </h1>
                 <div className="row">
                     <div className="col-md-4 ">
-                        <div className="card position-fixed ">
+                        <div className="card  ">
                             <div className="card-header">Options</div>
                             <div className="card-body text-center">
                                 <div className="btn-group text-center" role="group" aria-label="Options">
