@@ -27,34 +27,35 @@ function Card({ imageUrl, title, text }) {
     setShowContent(!showContent); // Toggle the state to show/hide content
   };
 
-  return (
-    <div>
-      <div
-        className="card m-3"
-        id="card"
-        style={cardStyle}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-      >
-        <img
-          className="card-img-top"
-          src={imageUrl}
-          alt="Card image cap"
-          style={imageStyle}
-        />
-        <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          {showContent ? <p className="card-text">{text}</p> : null}
-          <button
-            className="btn btn-primary"
-            onClick={handleReadClick}
-          >
-            {showContent ? "Hide" : "Read"}
-          </button>
-        </div>
+   
+  return( <div>
+    <div
+      className="card m-3"
+      id="card"
+      style={cardStyle}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <img
+        className="card-img-top"
+        src={imageUrl}
+        alt="Card image cap"
+        style={imageStyle}
+      />
+      <div className="card-body">
+        <h5 className="card-title">{title}</h5>
+        {showContent ? <p className="card-text">{text}</p> : null}
+        <button
+          className="btn btn-primary"
+          onClick={handleReadClick}
+        >
+          {showContent ? "Hide" : "Read"}
+        </button>
       </div>
     </div>
-  );
+  </div>
+);
+   
 }
 
 export default Card;
