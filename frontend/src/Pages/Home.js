@@ -46,7 +46,7 @@ return (
   <div>
     <Carousel onSearchQuery={handleSearchQuery} />
     <div className="text-center bg-light p-4 rounded shadow">
-      <div className="text-danger display-6 font-weight-bold" style={{ textShadow: '2px 2px 2px rgba(255, 140, 120, 0.7)' }}>
+      <div className="text-danger display-6 font-weight-bold" style={{ textShadow: '2px 2px 2px rgba(255, 140, 120, 0.8)' }}>
         Welcome to Library Management.
       </div>
     </div>
