@@ -9,7 +9,6 @@ import Signup from "./Pages/Signup";
 function App(){
   return(
     <>
-   
     <BrowserRouter>
     <Navbar/>
     <Routes>

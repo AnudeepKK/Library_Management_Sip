@@ -14,7 +14,7 @@ function About() {
         </div>
         <div className="col-md-6 order-md-1">
           <p className="lead">
-            Welcome to our Library Management platform. We are dedicated to providing a rich and diverse collection of books for our readers. Our mission is to foster a love for reading, learning, and exploration.
+            Welcome to our Pragati Library Management platform. We are dedicated to providing a rich and diverse collection of books for our readers with the knowledge og generations. Our mission is to foster a love for reading, learning, and exploration.
           </p>
           <p>
             Our vision is to create an accessible and vibrant library that enriches the lives of our community members. We believe in the power of books to inspire, educate, and transform individuals.

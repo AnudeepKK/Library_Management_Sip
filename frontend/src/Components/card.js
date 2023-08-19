@@ -54,8 +54,7 @@ function Card({ imageUrl, title, text }) {
       </div>
     </div>
   </div>
-);
-   
+); 
 }
 
 export default Card;
