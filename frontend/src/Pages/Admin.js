@@ -25,7 +25,6 @@ function Admin() {
         event.target.reset();
     };
 
-
     const handleSearch = () => {
         if (option === "delete" || option === "update") {
             const filtered = addedBooks.filter(
