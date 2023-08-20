@@ -61,9 +61,3 @@ return (
 }
 
 export default Home;
-
-
-
-
-
-
