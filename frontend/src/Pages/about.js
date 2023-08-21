@@ -25,7 +25,7 @@ function About() {
         <div className="col-md-6">
           <h2 className="text-primary">Our Vision</h2>
           <p>
-            Our vision is to create an accessible and vibrant library that enriches the lives of our community members. We believe in the power of books to inspire, educate, and transform individuals.
+          Empowering Minds Through Books: Our Vision for a Thriving Community Library!
           </p>
         </div>
         <div className="col-md-6">
