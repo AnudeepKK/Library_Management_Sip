@@ -1,9 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React,{useState} from "react";
+import { Link ,useNavigate} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "../styles/Login.css";
 
 const Login = () => {
+  const [credentials,setcredentials]=useState({email:"",password:""})
+  let navigate=useNavigate()
+  const handleSubmit=async(e)=>{
+    e.preventDefault()
+    const response=await fetch("http://localhost:3500/api/loginuser",{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({email:credentials.email,password:credentials.password})
+    }) 
+    const json = await response.json()
+    console.log(json);
+
+    if(!json.success){
+     alert("Enter valid credentials")
+    }
+    if(json.success){
+      navigate('/home')
+    }
+  }
+  const onChange=(event)=>{
+    setcredentials({...credentials,[event.target.name]:event.target.value})
+  }
+
+
   return (
     <div className="login-background">
       <div className="container">
@@ -14,10 +40,10 @@ const Login = () => {
                 <h3 className="text-center">Login</h3>
               </div>
               <div className="card-body">
-                <form>
+                <form onSubmit={handleSubmit}>
                   <div className="form-group">
                     <label htmlFor="email">Email:</label>
-                    <input type="email" className="form-control" id="email" />
+                    <input type="email" className="form-control" id="email" name="email" value={credentials.email} onChange={onChange}/>
                   </div>
                   <div className="form-group">
                     <label htmlFor="password">Password:</label>
@@ -25,6 +51,9 @@ const Login = () => {
                       type="password"
                       className="form-control"
                       id="password"
+                      name="password"
+                      value={credentials.password}
+                      onChange={onChange}
                     />
                   </div>
                   <button type="submit" className="btn btn-primary btn-block">

@@ -7,9 +7,12 @@ const app = express()
 app.use(express.json());
 app.use("/",route);
 app.use(cors())
+app.use(express.json())
+app.use('/api',require('./routes/Create_user.js'))
+
 
 //DB Connection
-mongoose.connect("mongodb+srv://anudeepkk2003:anudeep2003@cluster0.iesl0sk.mongodb.net/books")
+mongoose.connect("mongodb+srv://nishanthbhat18:meowmeow@cluster0.rgvqsc8.mongodb.net/CS_4B")
 .then(()=>{
     console.log("DB Connected");
 })
