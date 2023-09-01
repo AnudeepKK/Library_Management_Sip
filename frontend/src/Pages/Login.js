@@ -22,7 +22,7 @@ const Login = () => {
      alert("Enter valid credentials")
     }
     if(json.success){
-      navigate('/home')
+      navigate('/')
       localStorage.setItem("authToken",json.authToken)
       console.log(localStorage.getItem("authToken"));
     }
@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <div className="login-background">
-      <div className="container">
+      <div className="container vh-100">
         <div className="row justify-content-center">
           <div className="col-md-6 mt-5">
             <div className="card">

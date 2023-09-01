@@ -1,8 +1,10 @@
 import React from 'react';
 import nobg from '../resources/nobg_emblem.png';
+import Navbar from '../Components/Navbar'
 function About() {
   return (
     <div className="container mt-5">
+      <Navbar/>
       <h1 className="text-center mb-4 display-4">About Us</h1>
       <div className="row align-items-center">
         <div className="col-md-6 order-md-2">

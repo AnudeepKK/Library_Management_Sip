@@ -4,6 +4,8 @@ import Book2 from "../Images/Book2.png"
 import Book3 from "../Images/Book3.png"
 import Book4 from "../Images/Book4.png"
 import Book5 from "../Images/Book5.png"
+import CustomNavbar from "../Components/Navbar";
+
 const exampleBooks = [
     {
         _id: "1",
@@ -84,6 +86,8 @@ const Books = () => {
     };
 
     return (
+            <>
+            <CustomNavbar/>
         <div className="container mt-5">
             <div className="border border-5 p-4 bg-warning-subtle">
                 <div className="mb-4 text-center border border-5 border-black">
@@ -164,6 +168,7 @@ const Books = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

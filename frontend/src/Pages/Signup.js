@@ -29,7 +29,7 @@ const SignIn = () => {
      alert("Enter valid credentials")
     }else{
       alert("Account created")
-      navigate('/home')
+      navigate('/')
     }
   }
   const onChange=(event)=>{
@@ -37,7 +37,7 @@ const SignIn = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container vh-100">
       <div className="row justify-content-center">
         <div className="col-md-6 mt-5">
           <div className="card">
@@ -51,7 +51,7 @@ const SignIn = () => {
                   <input type="text" className="form-control" name="name" value={credentials.name} onChange={onChange} />
                 </div>
               <div className="form-group">
-                  <label htmlFor="text">UserId:</label>
+                  <label htmlFor="text">AdminId:</label>
                   <input type="text" className="form-control" name="userId" value={credentials.userId} onChange={onChange} />
                 </div>
                 <div className="form-group">

@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs')
 const jwtSecret = "HelloIamAwebDeveloper"
 
 router.post("/createuser",[body('email').isEmail(),
-body('name').isLength({ min: 5 }),
+body('name').isLength({ min: 3 }),
 body('password','incorrect Password').isLength({ min: 5 })
 ], async (req, res) => {
     const errors = validationResult(req); 

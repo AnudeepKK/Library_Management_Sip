@@ -11,6 +11,7 @@ import LionKing from '../Images/LionKing.jpg';
 import Brave from '../Images/TheBrave.jpg';
 import SmallOne from '../Images/TheSmallOne.jpg';
 import Thirteen from '../Images/Thirteen.jpg';
+import CustomNavbar from '../Components/Navbar';
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -44,6 +45,7 @@ function Home() {
 
 return (
   <div>
+    <CustomNavbar/>
     <Carousel onSearchQuery={handleSearchQuery} />
     <div className="text-center bg-light p-4 rounded shadow">
       <div className="text-danger display-6 font-weight-bold" style={{ textShadow: '2px 2px 2px rgba(255, 140, 120, 0.8)' }}>

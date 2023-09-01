@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Navbar from '../Components/Navbar'
 function Admin() {
     const [option, setOption] = useState("add");
     const [searchTerm, setSearchTerm] = useState("");
@@ -51,7 +51,9 @@ function Admin() {
     };
 
     return (
+        <><Navbar/>
         <div className="container mt-5">
+            
             <div className="border border-5 p-4 bg-warning-subtle">
                 <h1 className="mb-4  display-4 fw-bold text-primary">
                     Add, Delete, or Update Book
@@ -263,6 +265,7 @@ function Admin() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 
