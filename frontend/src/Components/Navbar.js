@@ -23,14 +23,14 @@ const CustomNavbar = () => {
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          {/* <Nav className="nav navbar-nav navbar-right">
-            <Nav.Link as={Link} to="/signup" className="nav-link btn btn-primary">
-              <span className="glyphicon glyphicon-user"></span> Sign Up
+          <Nav className="nav navbar-nav navbar-right">
+            <Nav.Link as={Link} to="/" className="nav-link btn btn-primary">
+              <span className="glyphicon glyphicon-user"></span> Logout
             </Nav.Link>
-            <Nav.Link as={Link} to="/login" className="nav-link btn btn-primary">
+            {/* <Nav.Link as={Link} to="/login" className="nav-link btn btn-primary">
               <span className="glyphicon glyphicon-log-in"></span> Login
-            </Nav.Link>
-          </Nav> */}
+            </Nav.Link> */}
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -2,20 +2,26 @@ const express = require('express')
 const router = express.Router()
 const user = require('../models/user-model')
 const { body, validationResult } = require('express-validator');
+const jwt=require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
+const jwtSecret = "HelloIamAwebDeveloper"
 
 router.post("/createuser",[body('email').isEmail(),
 body('name').isLength({ min: 5 }),
 body('password','incorrect Password').isLength({ min: 5 })
 ], async (req, res) => {
-    const errors = validationResult(req);
+    const errors = validationResult(req); 
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
+    const salt = await bcrypt.genSalt(10);
+    const secPassword = await bcrypt.hash(req.body.password,salt)
     try {
         await user.create({
             name:req.body.name,
             userId: req.body.userId,
-            password:req.body.password,
+            password:secPassword,
             email: req.body.email
         })
     res.json({success:true})
@@ -38,10 +44,17 @@ body('password','incorrect Password').isLength({ min: 5 })
         if(!userdata){
             return res.status(400).json({ errors: "Try logging with correct credentials" });
         }
-        if(req.body.password!==userdata.password){
+        const pwdcompare = await bcrypt.compare(req.body.password,userdata.password)
+        if(!pwdcompare){
             return res.status(400).json({ errors: "Try logging with correct credentials" });
         }
-        return res.json({success:true})
+        const data={
+            user:{
+                id:userdata.id
+            }
+        }
+        const authToken=jwt.sign(data,jwtSecret)
+        return res.json({success:true,authToken:authToken})
     } catch (err) {
         console.log(err);
         res.json({success:false})

@@ -23,6 +23,8 @@ const Login = () => {
     }
     if(json.success){
       navigate('/home')
+      localStorage.setItem("authToken",json.authToken)
+      console.log(localStorage.getItem("authToken"));
     }
   }
   const onChange=(event)=>{
