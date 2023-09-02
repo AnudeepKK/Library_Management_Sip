@@ -5,6 +5,7 @@ import Book3 from "../Images/Book3.png"
 import Book4 from "../Images/Book4.png"
 import Book5 from "../Images/Book5.png"
 import CustomNavbar from "../Components/Navbar";
+import Footer from "../Components/footer";
 
 const exampleBooks = [
     {
@@ -168,6 +169,7 @@ const Books = () => {
                 </div>
             </div>
         </div>
+        <Footer/>
         </>
     );
 };
