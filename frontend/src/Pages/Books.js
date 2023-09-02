@@ -1,79 +1,54 @@
 import React, { useState, useEffect } from "react";
-import Book1 from "../Images/Book1.png"
-import Book2 from "../Images/Book2.png"
-import Book3 from "../Images/Book3.png"
-import Book4 from "../Images/Book4.png"
-import Book5 from "../Images/Book5.png"
+import Axios from "axios";
 import CustomNavbar from "../Components/Navbar";
 import Footer from "../Components/footer";
 
-const exampleBooks = [
-    {
-        _id: "1",
-        title: "To Kill a Mockingbird",
-        author: "Harper Lee",
-        genre: "Fiction",
-        publicationDate: "July 11, 1960",
-        coverImage: Book1
-    },
-    {
-        _id: "2",
-        title: "1984",
-        author: "George Orwell",
-        genre: "Dystopian",
-        publicationDate: "June 8, 1949",
-        coverImage: Book2
-    },
-    {
-        _id: "3",
-        title: "Pride and Prejudice",
-        author: "Jane Austen",
-        genre: "Romance",
-        publicationDate: "January 28, 1813",
-        coverImage: Book3
-    },
-    {
-        _id: "4",
-        title: "The Great Gatsby",
-        author: "F. Scott Fitzgerald",
-        genre: "Fiction",
-        publicationDate: "April 10, 1925",
-        coverImage: Book4
-    },
-    {
-        _id: "5",
-        title: "The Hobbit",
-        author: "J.R.R. Tolkien",
-        genre: "Fantasy",
-        publicationDate: "September 21, 1937",
-        coverImage: Book5
-    }
-];
-
 const Books = () => {
     const [searchTerm, setSearchTerm] = useState("");
-    const [filteredBooks, setFilteredBooks] = useState(exampleBooks);
+    const [addedBooks, setAddedBooks] = useState([]);
+    const [filteredBooks, setFilteredBooks] = useState([]);
     const [showResults, setShowResults] = useState(false);
     const [selectedGenre, setSelectedGenre] = useState("None");
     const [filteredGenreBooks, setFilteredGenreBooks] = useState([]);
 
-    useEffect(() => {
-        setFilteredBooks(exampleBooks);
-        if (selectedGenre === "None") {
-            setFilteredGenreBooks(exampleBooks);
-        } else {
-            setFilteredGenreBooks(exampleBooks.filter((book) => book.genre === selectedGenre));
+    const fetchAddedBooks = async () => {
+        try {
+            // Fetch the list of added books from the backend using Axios
+            const response = await Axios.get("http://localhost:3500/api2/book/dis");
+            if (response.status === 200) {
+                const data = response.data.data; // Assuming your backend returns data in { data: [...] } format
+                setAddedBooks(data);
+            }
+        } catch (error) {
+            // Handle errors
+            console.error("Error fetching books:", error);
         }
-    }, [selectedGenre]);
+    };
+
+    useEffect(() => {
+        // Fetch added books from the backend when the component mounts
+        fetchAddedBooks();
+    }, []);
+
+    useEffect(() => {
+        // Filter books after fetching data
+        setFilteredBooks(addedBooks);
+
+        if (selectedGenre === "None") {
+            setFilteredGenreBooks(addedBooks);
+        } else {
+            setFilteredGenreBooks(addedBooks.filter((book) => book.Genre === selectedGenre));
+        }
+    }, [selectedGenre, addedBooks]); // Include addedBooks in the dependency array
 
     const handleSearch = () => {
         if (searchTerm.trim() === "") {
             setShowResults(false);
         } else {
-            const filtered = exampleBooks.filter(
+            const filtered = addedBooks.filter(
                 (book) =>
-                    book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    book.author.toLowerCase().includes(searchTerm.toLowerCase())
+                    book.Name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    book.Author.toLowerCase().includes(searchTerm.toLowerCase())
             );
             setFilteredBooks(filtered);
             setShowResults(true);
@@ -85,6 +60,7 @@ const Books = () => {
         setSelectedGenre("None");
         setShowResults(false);
     };
+
 
     return (
             <>
@@ -155,12 +131,12 @@ const Books = () => {
                         {(showResults ? filteredBooks : filteredGenreBooks).map((book) => (
                             <div key={book._id} className="col-md-3 mb-4">
                                 <div className="card">
-                                    <img src={book.coverImage} alt={`Cover of ${book.title}`} className="card-img-top" />
+                                    <img src={book.Image} alt={`Cover of ${book.Name}`} className="card-img-top" />
                                     <div className="card-body">
-                                        <h5 className="card-title">{book.title}</h5>
-                                        <p className="card-text">Author: {book.author}</p>
-                                        <p className="card-text">Genre: {book.genre}</p>
-                                        <p className="card-text">Publication Date: {book.publicationDate}</p>
+                                        <h5 className="card-title">{book.Name}</h5>
+                                        <p className="card-text">Author: {book.Author}</p>
+                                        <p className="card-text">Genre: {book.Genre}</p>
+                                        <p className="card-text">Publication Date: {book.Public}</p>
                                     </div>
                                 </div>
                             </div>
