@@ -171,41 +171,42 @@ function Admin() {
           <div className="border border-5 p-4 bg-warning-subtle">
             <h1 className="mb-4 display-8 fw-bold text-primary">Library Manager Hub: Add, Delete, or Update Books</h1>
             <div className="row">
-              <div className="col-md-4 ">
-                <div className="card">
-                  <div className="card-header">Options</div>
-                  <div className="card-body text-center">
-                    <div className="btn-group" role="group" aria-label="Options">
-                      <button
-                        className={`btn ${option === "add" ? "btn-success" : "btn-danger"}`}
-                        onClick={() => handleOptionChange("add")}
-                      >
-                        Add Book
-                      </button>
-                      <button
-                        className={`btn ${option === "delete" ? "btn-success" : "btn-danger"}`}
-                        onClick={() => handleOptionChange("delete")}
-                      >
-                        Delete Book
-                      </button>
-                      <button
-                        className={`btn ${option === "update" ? "btn-success" : "btn-danger"}`}
-                        onClick={() => handleOptionChange("update")}
-                      >
-                        Update Book
-                      </button>
-                    </div>
-                    <div className="mt-3 book-card">
-                      <img
-                        src="https://images.pexels.com/photos/1261180/pexels-photo-1261180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        alt="Book Options"
-                        className="img-fluid mt-3"
-                        style={{ width: "100%", maxHeight: "500px" }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="col-md-4">
+  <div className="card">
+    <div className="card-header">Options</div>
+    <div className="card-body d-flex flex-column align-items-center">
+      <div className="card-buttons mb-3">
+        <button
+          className={`btn ${option === "add" ? "btn-success" : "btn-danger"}`}
+          onClick={() => handleOptionChange("add")}
+        >
+          Add Book
+        </button>
+        <button
+          className={`btn ${option === "delete" ? "btn-success" : "btn-danger"}`}
+          onClick={() => handleOptionChange("delete")}
+        >
+          Delete Book
+        </button>
+        <button
+          className={`btn ${option === "update" ? "btn-success" : "btn-danger"}`}
+          onClick={() => handleOptionChange("update")}
+        >
+          Update Book
+        </button>
+      </div>
+      <div className="book-card">
+        <img
+          src="https://images.pexels.com/photos/1261180/pexels-photo-1261180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="Book Options"
+          className="img-fluid"
+          style={{ maxWidth: "100%", maxHeight: "500px" }}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
               <div className="col-md-8">
                 <div className="border border-5 p-4 bg-warning">
                   <div className="card ">
@@ -304,7 +305,7 @@ function Admin() {
                                 }
                               />
                             </div>
-                            
+
                             <button type="submit" className="btn btn-primary">
                               Add Book
                             </button>
@@ -507,7 +508,7 @@ function Admin() {
                               src={book.Image}
                               alt={`Cover of ${book.Name}`}
                               className="card-img-top"
-                              style={{height:'250px'}}
+                              style={{ height: '250px' }}
                             />
                             <div className="card-body">
                               <h5 className="card-title">{book.Name}</h5>
