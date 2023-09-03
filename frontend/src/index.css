@@ -13,4 +13,10 @@ body{
     max-width: 18rem;
   }
  
-  
+.book-card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.book-card:hover {
+  transform: scale(1.05);
+}

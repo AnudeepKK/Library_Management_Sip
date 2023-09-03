@@ -76,13 +76,13 @@ const updateBook = async (req, res) => {
 
 const deleteBook = async (req, res) => {
     try {
-        const { name } = req.body;
+        const { Name } = req.body;
 
-        if (!name) {
+        if (!Name) {
             return res.status(400).send({ msg: "Invalid input" });
         }
 
-        const deletedBook = await BookModel.findOneAndDelete({ Name: name });
+        const deletedBook = await BookModel.findOneAndDelete({ Name: Name });
 
         if (!deletedBook) {
             return res.status(404).send({ msg: "Book not found" });
