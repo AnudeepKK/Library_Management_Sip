@@ -48,20 +48,12 @@ const CustomNavbar = () => {
               </Nav.Link>
             </Nav>
             :
-            // <Nav>
-            //   {/* <Nav.Link as={Link} to="/admin" className="nav-link"  activeClassName="active">Admin</Nav.Link> */}
-            //   <NavLink to="/admin" className="nav-link" activeClassName="active">Admin</NavLink>
-            //   <Nav.Link as={Link} to="/login" className="nav-link btn btn-primary" onClick={handleLogout}>
-            //     <span className="glyphicon glyphicon-log-in text-danger"></span> Logout
-            //   </Nav.Link>
-            // </Nav>
             <Nav>
-            {/* <Nav.Link as={Link} to="/admin" className="nav-link"  activeClassName="active">Admin</Nav.Link> */}
-            <NavLink to="/admin" className="nav-link" activeClassName="active">Admin</NavLink>
-            <Nav.Link as={Link} to="/login" className="nav-link btn" onClick={handleLogout}>
-              <span className="glyphicon glyphicon-log-in text-danger"></span> Logout
-            </Nav.Link>
-          </Nav>
+              <NavLink to="/admin" className="nav-link" activeClassName="active">Admin</NavLink>
+              <Nav.Link as={Link} to="/login" className="nav-link btn" onClick={handleLogout}>
+                <span className="glyphicon glyphicon-log-in text-danger"></span> Logout
+              </Nav.Link>
+            </Nav>
           }
         </Navbar.Collapse>
       </Container>

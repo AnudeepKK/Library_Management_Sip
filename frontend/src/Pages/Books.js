@@ -131,7 +131,7 @@ const Books = () => {
                         {(showResults ? filteredBooks : filteredGenreBooks).map((book) => (
                             <div key={book._id} className="col-md-3 mb-4">
                                 <div className="card">
-                                    <img src={book.Image} alt={`Cover of ${book.Name}`} className="card-img-top" />
+                                    <img src={book.Image} alt={`Cover of ${book.Name}`} className="card-img-top"  style={{height:"250px"}}/>
                                     <div className="card-body">
                                         <h5 className="card-title">{book.Name}</h5>
                                         <p className="card-text">Author: {book.Author}</p>

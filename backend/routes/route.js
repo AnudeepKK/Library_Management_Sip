@@ -13,8 +13,9 @@ const BookController = require("../Controller/bookcontroller")
 //user api
 router.post("/book/add",BookController.addBook);
 router.get("/book/dis",BookController.readBook);
-router.post("/book/update",BookController.updateBook);
+router.put("/book/update",BookController.updateBook);
 router.post("/book/del",BookController.deleteBook);
+// router.delete('/api2/book/del', BookController.deleteBook);
 
 // router.get('/users',(req,res)=>{
 //     res.send('All users')

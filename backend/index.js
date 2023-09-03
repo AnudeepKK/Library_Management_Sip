@@ -7,13 +7,13 @@ const app = express();
 const PORT = 3500;
 
 // CORS configuration
-app.use(
-  cors({
-    origin: "http://localhost:3000", // Replace with your frontend's URL
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Add the HTTP methods you need
-  })
-);
-
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000", // Replace with your frontend's URL
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Add the HTTP methods you need
+//   })
+// );
+app.use(cors())
 // Parse JSON request bodies
 app.use(express.json());
 
