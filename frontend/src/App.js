@@ -8,6 +8,7 @@ import Signup from "./Pages/Signup";
 // import Navbar from './Components/Navbar'
 function App(){
   return(
+
    <>
     <BrowserRouter>
     {/* <Navbar/> */}
@@ -21,6 +22,7 @@ function App(){
     </Routes>
     </BrowserRouter>
     </> 
+    
   )
 }
 export default App
