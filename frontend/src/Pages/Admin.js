@@ -44,6 +44,11 @@ function Admin() {
 
   const handleSearch = async () => {
     if (option === "delete" || option === "update") {
+      if (searchTerm.trim() === "") {
+        // If search field is empty, display a message
+        alert("Please enter a book to search.");
+        return;
+      }
       try {
         const response = await Axios.get("http://localhost:3500/api2/book/dis");
         if (response.status === 200) {
@@ -63,15 +68,15 @@ function Admin() {
 
   const handleAddBook = async (event) => {
     event.preventDefault();
-  
+
     // Get the current date in ISO format (YYYY-MM-DD)
     const currentDate = new Date().toISOString().split('T')[0];
-  
+
     if (newBook.Public > currentDate) {
       alert("Publication date cannot be greater than today's date.");
       return; // Prevent adding the book
     }
-  
+
     try {
       // Send a POST request to the backend to add a new book using Axios
       const response = await Axios.post("http://localhost:3500/api2/book/add", newBook);
@@ -87,13 +92,14 @@ function Admin() {
           Genre: "",
           Public: "",
         });
+        alert("Book added")
       }
     } catch (error) {
       // Handle errors
       console.error("Error adding book:", error);
     }
   };
-  
+
 
   const fetchAddedBooks = async () => {
     try {
@@ -120,6 +126,7 @@ function Admin() {
         const updatedBooks = addedBooks.filter((b) => b.Name !== bookName);
         setAddedBooks(updatedBooks);
         setFoundBooks([]);
+        alert("Book deleted")
       }
     } catch (error) {
       console.error("Error deleting book:", error);
@@ -142,6 +149,7 @@ function Admin() {
 
       if (response.status === 200) {
         // Update the book in the local state
+        alert("Book updated")
         const updatedBooks = addedBooks.map((b) => {
           if (b.Name === book.Name) {
             return { ...b, ...updateData.newData };
@@ -171,50 +179,50 @@ function Admin() {
   return (
     <>
       <Navbar />
-      <div className="container mt-5">
+      <div className="container mt-5 ">
         {loading ? (
           <div className="text-center">
             <p>Loading...</p>
           </div>
         ) : (
-          <div className="border border-5 p-4 bg-warning-subtle">
+          <div className="border border-5 p-4  mb-4 bg-warning-subtle">
             <h1 className="mb-4 display-8 fw-bold text-primary">Library Manager Hub: Add, Delete, or Update Books</h1>
             <div className="row">
-            <div className="col-md-4">
-  <div className="card">
-    <div className="card-header">Options</div>
-    <div className="card-body d-flex flex-column align-items-center">
-      <div className="card-buttons mb-3">
-        <button
-          className={`btn ${option === "add" ? "btn-success" : "btn-danger"}`}
-          onClick={() => handleOptionChange("add")}
-        >
-          Add Book
-        </button>
-        <button
-          className={`btn ${option === "delete" ? "btn-success" : "btn-danger"}`}
-          onClick={() => handleOptionChange("delete")}
-        >
-          Delete Book
-        </button>
-        <button
-          className={`btn ${option === "update" ? "btn-success" : "btn-danger"}`}
-          onClick={() => handleOptionChange("update")}
-        >
-          Update Book
-        </button>
-      </div>
-      <div className="book-card">
-        <img
-          src="https://images.pexels.com/photos/1261180/pexels-photo-1261180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="Book Options"
-          className="img-fluid"
-          style={{ maxWidth: "100%", maxHeight: "500px" }}
-        />
-      </div>
-    </div>
-  </div>
-</div>
+              <div className="col-md-4">
+                <div className="card">
+                  <div className="card-header">Options</div>
+                  <div className="card-body d-flex flex-column align-items-center">
+                    <div className="card-buttons mb-3">
+                      <button
+                        className={`btn ${option === "add" ? "btn-success" : "btn-danger"}`}
+                        onClick={() => handleOptionChange("add")}
+                      >
+                        Add Book
+                      </button>
+                      <button
+                        className={`btn ${option === "delete" ? "btn-success" : "btn-danger"}`}
+                        onClick={() => handleOptionChange("delete")}
+                      >
+                        Delete Book
+                      </button>
+                      <button
+                        className={`btn ${option === "update" ? "btn-success" : "btn-danger"}`}
+                        onClick={() => handleOptionChange("update")}
+                      >
+                        Update Book
+                      </button>
+                    </div>
+                    <div className="book-card">
+                      <img
+                        src="https://images.pexels.com/photos/1261180/pexels-photo-1261180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="Book Options"
+                        className="img-fluid"
+                        style={{ maxWidth: "100%", maxHeight: "500px" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               <div className="col-md-8">
                 <div className="border border-5 p-4 bg-warning">

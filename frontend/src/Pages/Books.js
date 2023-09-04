@@ -65,7 +65,7 @@ const Books = () => {
     return (
             <>
             <CustomNavbar/>
-        <div className="container mt-5">
+        <div className="container mt-5 mb-4">
             <div className="border border-5 p-4 bg-warning-subtle">
                 <div className="mb-4 text-center border border-5 border-black">
                     <h1>BOOK SHELF</h1>

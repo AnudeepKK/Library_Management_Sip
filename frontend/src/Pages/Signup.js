@@ -40,28 +40,29 @@ const SignIn = () => {
     <div className="container vh-100">
       <div className="row justify-content-center">
         <div className="col-md-6 mt-5">
-          <div className="card">
+          <div className="card glassmorphism">
             <div className="card-header bg-primary text-white">
               <h3 className="text-center">Sign In</h3>
             </div>
             <div className="card-body">
               <form onSubmit={handleSubmit}>
               <div className="form-group">
-                  <label htmlFor="text">Name:</label>
-                  <input type="text" className="form-control" name="name" value={credentials.name} onChange={onChange} />
+                  <label htmlFor="text" className="text-white">Name:</label>
+                  <input type="text" placeholder="Enter the Name" className="form-control" name="name" value={credentials.name} onChange={onChange} />
                 </div>
               <div className="form-group">
-                  <label htmlFor="text">AdminId:</label>
-                  <input type="text" className="form-control" name="userId" value={credentials.userId} onChange={onChange} />
+                  <label htmlFor="text" className="text-white">AdminId:</label>
+                  <input type="text" placeholder="Enter Admin Id" className="form-control" name="userId" value={credentials.userId} onChange={onChange} />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="email">Email:</label>
-                  <input type="email" className="form-control" id="email" name="email" value={credentials.email} onChange={onChange}/>
+                  <label htmlFor="email" className="text-white">Email:</label>
+                  <input type="email" placeholder="Enter email" className="form-control" id="email" name="email" value={credentials.email} onChange={onChange}/>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="password">Password:</label>
+                  <label htmlFor="password"  className="text-white">Password:</label>
                   <input
                     type="password"
+                    placeholder="Enter password"
                     className="form-control"
                     id="password"
                     name="password"
@@ -74,9 +75,9 @@ const SignIn = () => {
                 </button>
                 <Link to='/login' className='m-3 btn btn-danger'>Already a User</Link>
               </form>
-              <hr />
+              <hr className="text-white"/>
               <div className="text-center">
-                <p>Or sign in with:</p>
+                <p className="text-white">Or sign in with:</p>
                 <button
                   className="btn btn-danger m-3"
                   onClick={handleGoogleSignIn}
