@@ -8,7 +8,7 @@ import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <div style={{ backgroundImage: `url(${Imgbg})`}}>
+  <div className='bg-warning'>
     <App />
   </div>
 );
