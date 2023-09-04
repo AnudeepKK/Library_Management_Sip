@@ -78,7 +78,7 @@ const SignIn = () => {
               <div className="text-center">
                 <p>Or sign in with:</p>
                 <button
-                  className="btn btn-danger mr-2"
+                  className="btn btn-danger m-3"
                   onClick={handleGoogleSignIn}
                 >
                   <i className="fab fa-google mr-2"></i> Sign in with Google

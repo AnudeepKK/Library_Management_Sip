@@ -58,7 +58,7 @@ const Login = () => {
                       onChange={onChange}
                     />
                   </div>
-                  <button type="submit" className="btn btn-primary btn-block">
+                  <button type="submit" className="mt-2 btn btn-primary btn-block">
                     Log in
                   </button>
                 </form>

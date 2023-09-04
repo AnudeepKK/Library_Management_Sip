@@ -9,7 +9,7 @@ const CustomNavbar = () => {
   const handleLogout = () => {
     // localStorage.removeItem("authToken");
     // navigate("/login");
-    const shouldLogout = window.confirm('Are you sure you want to log out?');
+    const shouldLogout = alert('You have logged out');
 
     if (shouldLogout) {
       localStorage.removeItem("authToken");

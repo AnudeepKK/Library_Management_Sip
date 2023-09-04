@@ -130,7 +130,7 @@ const Books = () => {
                     <div className="row">
                         {(showResults ? filteredBooks : filteredGenreBooks).map((book) => (
                             <div key={book._id} className="col-md-3 mb-4">
-                                <div className="card">
+                                <div className="card book-card">
                                     <img src={book.Image} alt={`Cover of ${book.Name}`} className="card-img-top"  style={{height:"250px"}}/>
                                     <div className="card-body">
                                         <h5 className="card-title">{book.Name}</h5>
