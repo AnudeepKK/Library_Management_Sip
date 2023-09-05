@@ -1,20 +1,30 @@
 import React from 'react';
-
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faBook, faUser, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'; // Import Font Awesome icons
+import { faHome, faBook, faUser, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+
 const CustomNavbar = () => {
   const navigate = useNavigate();
+  // const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  // useEffect(() => {
+  //   // Check if the user is logged in when the component mounts
+  //   const authToken = localStorage.getItem("authToken");
+  //   setIsLoggedIn(!authToken); // Convert to boolean
+
+  //   // You can also do any additional authentication checks here if needed
+  // }, []);
 
   const handleLogout = () => {
-    const shouldLogout = alert('You have logged out');
+    // const shouldLogout = alert('You have logged out');
 
-    if (shouldLogout) {
+    // if (shouldLogout) {
       localStorage.removeItem("authToken");
+      // setIsLoggedIn(false); // Update the state to reflect logout
       navigate("/login");
-    }
+    // }
   };
 
   return (
@@ -39,7 +49,7 @@ const CustomNavbar = () => {
               <NavDropdown.Item as={Link} to="/libpolicy">Library policies</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          {(!localStorage.getItem("authToken")) ?
+          {(!localStorage.getItem("authToken")) ? 
             <Nav className="nav navbar-nav navbar-right">
               <Nav.Link as={Link} to="/signup" className="nav-link btn">
                 <FontAwesomeIcon icon={faUser} /> Signup
@@ -48,7 +58,7 @@ const CustomNavbar = () => {
                 <FontAwesomeIcon icon={faSignInAlt} /> Login
               </Nav.Link>
             </Nav>
-            :
+           : 
             <Nav>
               <NavLink to="/admin" className="nav-link" activeClassName="active">
                 <FontAwesomeIcon icon={faUser} /> Admin
