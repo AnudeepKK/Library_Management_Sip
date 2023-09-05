@@ -5,6 +5,7 @@ import Admin from "./Pages/Admin";
 import About from "./Pages/about";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
+import Contact from "./Pages/Contact"
 // import Navbar from './Components/Navbar'
 function App(){
   return(
@@ -19,6 +20,7 @@ function App(){
       <Route path="/signup" element={<Signup/>}/>
       <Route path='/admin' element = {<Admin />} />
       <Route path='/about' element = {<About />} />
+      <Route path='/contact' element = {<Contact />} />
     </Routes>
     </BrowserRouter>
     </> 

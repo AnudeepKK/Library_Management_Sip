@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -33,7 +34,7 @@ const CustomNavbar = () => {
 
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/contact">Contact</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/about">About</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>

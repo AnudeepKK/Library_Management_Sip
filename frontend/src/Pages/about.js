@@ -66,10 +66,7 @@ function About() {
               </p>
             </div>
           </div>
-          <div className="text-center mt-5 mb-5 text-white">
-            <h2 className="text-primary text-white">Contact Us</h2>
-            <p className='mb-2 p-2'>If you have any questions or inquiries, feel free to reach out to us at <a href="mailto:info@example.com">info@example.com</a>.</p>
-          </div>
+         
         </div>
       </div>
       <Footer />
