@@ -10,7 +10,6 @@ import LibraryPolicies from "./Pages/Library_policies";
 // import Navbar from './Components/Navbar'
 function App(){
   return(
-
    <>
     <BrowserRouter>
     {/* <Navbar/> */}
@@ -26,7 +25,6 @@ function App(){
     </Routes>
     </BrowserRouter>
     </> 
-    
   )
 }
 export default App
