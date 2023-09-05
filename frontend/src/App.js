@@ -6,6 +6,7 @@ import About from "./Pages/about";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Contact from "./Pages/Contact"
+import LibraryPolicies from "./Pages/Library_policies";
 // import Navbar from './Components/Navbar'
 function App(){
   return(
@@ -21,6 +22,7 @@ function App(){
       <Route path='/admin' element = {<Admin />} />
       <Route path='/about' element = {<About />} />
       <Route path='/contact' element = {<Contact />} />
+      <Route path='/libpolicy' element = {<LibraryPolicies />} />
     </Routes>
     </BrowserRouter>
     </> 

@@ -104,10 +104,10 @@ const Books = () => {
                                     onChange={(e) => setSelectedGenre(e.target.value)}
                                 >
                                     <option value="None">None</option>
-                                    <option vaue="Fiction">Fiction</option>
-                                    <option vaue="Dystopian">Dystopian</option>
-                                    <option vaue="Fantasy">Fantasy</option>
-                                    <option vaue="Romance">Romance</option>
+                                    <option value="Mystery">Mystery</option>
+                                    <option value="Science Fiction">Science Fiction</option>
+                                    <option value="Romance">Romance</option>
+                                    <option value="Fantasy">Fantasy</option>
                                     {/* Add more genre options here on need*/}
                                 </select>
                             </div>
