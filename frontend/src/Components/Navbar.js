@@ -1,14 +1,13 @@
 import React from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom'; // Import NavLink
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faBook, faUser, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'; // Import Font Awesome icons
 const CustomNavbar = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // localStorage.removeItem("authToken");
-    // navigate("/login");
     const shouldLogout = alert('You have logged out');
 
     if (shouldLogout) {
@@ -24,11 +23,13 @@ const CustomNavbar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            {/* Use NavLink for Home */}
-            <NavLink exact to="/" className="nav-link" activeClassName="active">Home</NavLink>
+            <NavLink exact to="/" className="nav-link" activeClassName="active">
+              <FontAwesomeIcon icon={faHome} /> Home
+            </NavLink>
 
-            {/* Use NavLink for Books */}
-            <NavLink to="/books" className="nav-link" activeClassName="active">Books</NavLink>
+            <NavLink to="/books" className="nav-link" activeClassName="active">
+              <FontAwesomeIcon icon={faBook} /> Books
+            </NavLink>
 
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -41,17 +42,19 @@ const CustomNavbar = () => {
           {(!localStorage.getItem("authToken")) ?
             <Nav className="nav navbar-nav navbar-right">
               <Nav.Link as={Link} to="/signup" className="nav-link btn">
-                <span className="glyphicon glyphicon-user"></span> Signup
+                <FontAwesomeIcon icon={faUser} /> Signup
               </Nav.Link>
               <Nav.Link as={Link} to="/login" className="nav-link btn">
-                <span className="glyphicon glyphicon-log-in"></span> Login
+                <FontAwesomeIcon icon={faSignInAlt} /> Login
               </Nav.Link>
             </Nav>
             :
             <Nav>
-              <NavLink to="/admin" className="nav-link" activeClassName="active">Admin</NavLink>
+              <NavLink to="/admin" className="nav-link" activeClassName="active">
+                <FontAwesomeIcon icon={faUser} /> Admin
+              </NavLink>
               <Nav.Link as={Link} to="/login" className="nav-link btn" onClick={handleLogout}>
-                <span className="glyphicon glyphicon-log-in text-danger"></span> Logout
+                <FontAwesomeIcon icon={faSignOutAlt} className="text-danger" /> Logout
               </Nav.Link>
             </Nav>
           }

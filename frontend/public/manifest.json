@@ -8,7 +8,7 @@
       "type": "image/x-icon"
     },
     {
-      "src": "./resources/1.png",
+      "src": "one.png",
       "type": "image/png",
       "sizes": "64x64" 
     },

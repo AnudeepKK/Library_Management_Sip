@@ -34,3 +34,18 @@ body{
 .glassmorphism:hover {
   background: rgba(255, 255, 255, 0.078); /* Adjust hover transparency */
 }
+
+/* Add styles for the parallax effect */
+.parallax {
+  background-image: url('./Images/lib.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  max-width: 2000px;
+  margin: 3rem;
+}
+
+.custom-shadow {
+  box-shadow: 5px 5px 10px #ff0000; /* Change #ff0000 to the desired shadow color */
+}
