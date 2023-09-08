@@ -47,7 +47,6 @@ The Book Library project aims to create a web application that allows admins to 
 - **JSON Web Token (JWT):** A standard for securely transmitting information between parties as a compact and self-contained token, often used for authentication and authorization in your application.
 
 ## Credits  😇
-
 - 👤 [ChethanPai](https://github.com/CheetahCodes21)
 - 👤 [Anudeep KK](https://github.com/AnudeepKK)
 - 👤 [Nishanth Bhat](https://github.com/BhatNishanthGanesh)
