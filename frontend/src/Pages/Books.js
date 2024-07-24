@@ -14,7 +14,7 @@ const Books = () => {
     const fetchAddedBooks = async () => {
         try {
             // Fetch the list of added books from the backend using Axios
-            const response = await Axios.get("http://localhost:3500/api2/book/dis");
+            const response = await Axios.get("https://library-management-sip-79bz.onrender.com/api2/book/dis");
             if (response.status === 200) {
                 const data = response.data.data; // Assuming your backend returns data in { data: [...] } format
                 setAddedBooks(data);

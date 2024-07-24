@@ -50,7 +50,7 @@ function Admin() {
         return;
       }
       try {
-        const response = await Axios.get("http://localhost:3500/api2/book/dis");
+        const response = await Axios.get("https://library-management-sip-79bz.onrender.com/api2/book/dis");
         if (response.status === 200) {
           const data = response.data.data;
           const filtered = data.filter(
@@ -79,7 +79,7 @@ function Admin() {
 
     try {
       // Send a POST request to the backend to add a new book using Axios
-      const response = await Axios.post("http://localhost:3500/api2/book/add", newBook);
+      const response = await Axios.post("https://library-management-sip-79bz.onrender.com/api2/book/add", newBook);
       console.log(response);
       if (response.status === 201) {
         // Add the new book to the local state
@@ -104,7 +104,7 @@ function Admin() {
   const fetchAddedBooks = async () => {
     try {
       // Fetch the list of added books from the backend using Axios
-      const response = await Axios.get("http://localhost:3500/api2/book/dis");
+      const response = await Axios.get("https://library-management-sip-79bz.onrender.com/api2/book/dis");
       if (response.status === 200) {
         const data = response.data.data; // Assuming your backend returns data in { data: [...] } format
         setAddedBooks(data);
@@ -118,7 +118,7 @@ function Admin() {
   const handleDeleteBook = async (bookName) => {
     try {
       // Send a POST request to the backend to delete the book using Axios
-      const response = await Axios.post("http://localhost:3500/api2/book/del", { Name: bookName });
+      const response = await Axios.post("https://library-management-sip-79bz.onrender.com/api2/book/del", { Name: bookName });
 
       // Check the response status
       if (response.status === 200) {
@@ -142,7 +142,7 @@ function Admin() {
   const handleUpdateBook = async (book) => {
     try {
       // Send a PUT request to the backend to update the specific book using Axios
-      const response = await Axios.put("http://localhost:3500/api2/book/update", {
+      const response = await Axios.put("https://library-management-sip-79bz.onrender.com/api2/book/update", {
         name: book.Name, // Send the book name as an identifier
         newData: updateData.newData, // Send the updated data
       });
