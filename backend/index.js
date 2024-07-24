@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const route = require("./routes/route");
 const cors = require("cors");
-
+require('dotenv').config();
 const app = express();
 const PORT = 3500;
 
@@ -21,9 +21,11 @@ app.use(express.json());
 app.use("/api2", route);
 app.use("/api", require("./routes/Create_user.js"));
 
+
 // DB Connection
+const dbURI = process.env.MONGODB_URI;
 mongoose
-  .connect("mongodb+srv://nishanthbhat18:meowmeow@cluster0.rgvqsc8.mongodb.net/CS_4B")
+  .connect(dbURI)
   .then(() => {
     console.log("DB Connected");
   })
